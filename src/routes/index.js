@@ -9,26 +9,14 @@ const HomePage = lazy(() => import('../components/home'));
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={<Loader pageLoader />}>
-                <HomePage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <Suspense fallback={<Loader pageLoader />}>
-                <ErrorPage />
-              </Suspense>
-            }
-          />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Loader pageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };

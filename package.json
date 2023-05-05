@@ -33,7 +33,7 @@
     "lint:ts": "eslint src/**/*.js src/**/*.jsx",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:staged": "lint-staged",
+    "lint:staged": "npm run lint:staged",
     "precommit": "npm run lint:staged",
     "prepare": "husky install"
   },

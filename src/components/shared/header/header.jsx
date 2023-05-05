@@ -12,8 +12,6 @@ const Header = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters variant="dense">
-
-          
           <Typography
             variant="h6"
             noWrap
