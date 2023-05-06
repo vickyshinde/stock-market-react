@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run precommit
+npx better-npm-audit audit && npm test -- --watchAll=false && npm run lint-staged

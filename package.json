@@ -32,10 +32,17 @@
     "lint:ts:fix": "eslint src/**/*.js src/**/*.jsx --fix",
     "lint:ts": "eslint src/**/*.js src/**/*.jsx",
     "test": "react-scripts test",
+    "test:options": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:staged": "npm run lint:staged",
+    "lint-staged": "lint-staged",
     "precommit": "npm run lint:staged",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "eslintConfig": {
     "extends": [
