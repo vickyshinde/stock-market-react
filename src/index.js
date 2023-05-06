@@ -7,7 +7,7 @@ import './i18n';
 import reportWebVitals from './reportWebVitals';
 import theme from './theme';
 
-import './styles/main.sass';
+// import './styles/main.sass';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
