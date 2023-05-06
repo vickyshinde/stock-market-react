@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "13.5.0",
+    "husky": "8.0.3",
     "i18next": "22.4.14",
     "i18next-browser-languagedetector": "7.0.1",
     "i18next-http-backend": "2.2.0",
@@ -21,33 +22,25 @@
     "react-i18next": "12.2.0",
     "react-router-dom": "6.9.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "2.1.4",
-    "husky": "8.0.3"
+    "web-vitals": "2.1.4"
   },
   "scripts": {
     "start": "PORT=3030 react-scripts start",
     "start-win": "SET PORT=3030 && react-scripts start",
     "build": "react-scripts build",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css} --config ./.prettierrc",
-    "lint:ts:fix": "eslint src/**/*.js src/**/*.jsx --fix",
-    "lint:ts": "eslint src/**/*.js src/**/*.jsx",
     "test": "react-scripts test",
     "test:options": "react-scripts test",
+    "lint:staged": "lint-staged",
     "eject": "react-scripts eject",
-    "lint-staged": "lint-staged",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
     "precommit": "npm run lint:staged",
     "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+      "npx better-npm-audit audit && npm run lint:ts && npm run test:options"
     ]
   },
   "browserslist": {
@@ -70,6 +63,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "lint-staged": "^13.2.2",
     "prettier": "2.8.7"
   }
 }
