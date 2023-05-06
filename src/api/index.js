@@ -1,4 +1,5 @@
-import API_ENDPOINT, { sendRequest } from '../config/api-endpoint';
+import API_ENDPOINT from '../config/api-endpoint';
+import { sendRequest } from '../config/secureFetch';
 import { appConstants } from '../appConstants';
 
 const { API_END_POINT } = appConstants;
@@ -20,11 +21,12 @@ export const getStockUsers = async () => {
   console.log('test');
   try {
     responseData = await sendRequest('get', config.endpoint);
-    console.log('api-endpoint', config);
-    console.log('getPlaceholderUsers func success', responseData);
+    console.warn('api-endpoint', config);
+    console.warn('getPlaceholderUsers func success', responseData);
   } catch (error) {
-    console.log('getPlaceholderUsers func error', error);
-    console.log(error);
+    console.error('getPlaceholderUsers func error', error);
+    console.error(error);
+    responseData = error;
   }
 
   return responseData;
